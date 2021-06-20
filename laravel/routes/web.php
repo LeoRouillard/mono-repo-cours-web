@@ -15,4 +15,12 @@ use App\Http\Controllers\ViewController;
 |
 */
 
+Route::get('/home',function(){
+    return view('welcome');
+});
+
 Route::get('/{any}', [ViewController::class,'app'])->where('any','.*');
+
+Route::fallback(function(){
+    return view('index');
+});
